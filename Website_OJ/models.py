@@ -18,7 +18,7 @@ class Member(models.Model):
         return self.fullname
 
 class Problem(models.Model):
-    problem_id = models.IntegerField()
+    problem_id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=200)
     statement = models.CharField(max_length=2000)
     difficulty = models.CharField(max_length=200)
@@ -28,9 +28,12 @@ class Problem(models.Model):
         return self.title
 
 class Test_cases(models.Model):
+    problem_id = models.ForeignKey(Problem,on_delete=models.DO_NOTHING)
     input_case = models.CharField(max_length=200)
     output_case = models.CharField(max_length=200)
 
 class Submission(models.Model):
+    problem_id = models.ForeignKey(Problem,on_delete=models.DO_NOTHING)
+    submission_time = models.TimeField(null=True)
     verdict = models.CharField(max_length=200)
 
