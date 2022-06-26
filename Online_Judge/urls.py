@@ -16,8 +16,12 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path,include
+from Website_OJ import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('Website_OJ.urls'))
+    path('',include('Website_OJ.urls')),
+    path('',include('Website_OJ.urls')),
+    path('api/',views.Problem_list),
+    path('problem/',views.problem_statement),
 ]

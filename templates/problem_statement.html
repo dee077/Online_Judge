@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lets Code!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/problem_statement.css' %}">
   </head>
   <body>
     <!-- nav-bar -->
@@ -48,27 +48,18 @@
     </nav>
    </div>
 
-   <!-- table -->
-   <table class="table table-striped table-dark mt-5">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Status</th>
-        <th scope="col">Difficulty</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for obj in json_data %}
-        <tr>
-          <th scope="row">{{obj.problem_id}}</th>
-          <td>{{obj.title}}</td>
-          <td>{{obj.solved_status}}</td>
-          <td>{{obj.difficulty}}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+   <!-- 2 divs -->
+   <div class="body-div">
+        <div class="left-div mt-5">
+           
+        </div>
+        <div class="right-div mt-5">
+            <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+        </div>
+   </div>
+
 
 
 
