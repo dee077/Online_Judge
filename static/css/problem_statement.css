@@ -9,11 +9,12 @@
 }
 .left-div{
     width: 50%;
-    background: red;
-    float: left;
+    position: relative; 
 }
 .right-div{
     width: 50%;
-    background: yellow;
-    float: left;
+    position: relative;
+}
+.input-box{
+    height: 30rem;
 }

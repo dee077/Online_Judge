@@ -61,16 +61,14 @@
     <tbody>
       {% for obj in json_data %}
         <tr>
-          <th scope="row">{{obj.problem_id}}</th>
-          <td>{{obj.title}}</td>
-          <td>{{obj.solved_status}}</td>
-          <td>{{obj.difficulty}}</td>
+          <th scope="row"><a class="table_data" href="">{{obj.problem_id}}</a></th>
+          <td><a class="table_data" href="{% url 'problem' obj.problem_id %}">{{obj.title}}</a></td>
+          <td><a class="table_data" href="">{{obj.solved_status}}</a></td>
+          <td><a class="table_data" href="">{{obj.difficulty}}</a></td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
-
-
 
 
 

@@ -1,3 +1,11 @@
 .logo{
     color: white;
 }
+p{
+    color: red;
+}
+/* table */
+.table_data{
+    color: white;
+    text-decoration: none;
+}
