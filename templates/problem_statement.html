@@ -53,9 +53,31 @@
         <div class="left-div  col-lg-6 " >
           <p>{{problem_data.statement}}</p>
         </div>
+        
         <div class="right-div col-lg-6">
             <div>
-                <textarea class="form-control input-box" aria-label="With textarea"></textarea>
+                <!-- Dropdown -->
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Language
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">C++</a>
+                    <a class="dropdown-item" href="#">Java</a>
+                    <a class="dropdown-item" href="#">Python</a>
+                  </div>
+                </div>
+                 
+                <!-- Upload file form -->
+                <form method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                 
+                  <!-- <textarea class="form-control input-box" aria-label="With textarea" name="code"></textarea> -->
+                  <input  type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+                 
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </form>
             </div>
         </div>
    </div>
@@ -63,8 +85,7 @@
 
 
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
