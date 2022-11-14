@@ -4,88 +4,173 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lets Code!</title>
+    <title>Online Judge</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/problem_statement.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d-float">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
-  <body>
-    <!-- nav-bar -->
-   <div class="header">
-    <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <!-- <img class="logo" src="{% static 'Images/logo.png' %}" alt="logo"> -->
-        <a class="navbar-brand logo" href="#" style="color: white;">Lets Code!</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" style="color: white;">Disabled</a>
-            </li>
-          </ul>
-          <button type="button" class="btn btn-dark">Login</button>
-          <button type="button" class="btn btn-dark">Signup</button>
-        </div>
-      </div>
-    </nav>
-   </div>
 
-   <!-- 2 divs -->
-   <div class="body-div row container-fluid mt-5">
-        <div class="left-div  col-lg-6 " >
-          <p>{{problem_data.statement}}</p>
+  <body>
+
+  <nav class="nav affix">
+    <div class="container">
+        <div class="logo">
+            <a class="logo_oj" href="#">Online Judge</a>
         </div>
-        
-        <div class="right-div col-lg-6">
-            <div>
-                <!-- Dropdown -->
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Language
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">C++</a>
-                    <a class="dropdown-item" href="#">Java</a>
-                    <a class="dropdown-item" href="#">Python</a>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="#">Problems</a></li>
+                <li><a href="#">Contest</a></li>
+                <li><a href="#">Leaderboard</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Signup</a></li>
+            </ul>
+        </div>
+        </div>
+   </nav>
+
+    <!-- Background Image -->
+    <section class="home">
+    </section>
+    
+   <div class="main-div container">
+     <div class="heading-div">
+        <h1 class="heading">Problem Statement: </h1>
+     </div>
+     <div class="statement-div">
+        <p class="statement">{{problem_data.statement}}</p>
+     </div>
+     <div class="choose-dropdown-div" >
+        <div class="choose-language-div">
+            <h1 class="choose-language">Choose Language </h1>
+        </div>
+        <div class="dropdown">
+          <select class="form-select" aria-label="Default select example">
+            <option class="select-option" value="1">C++</option>
+            <option class="select-option" value="2">Pyhton</option>
+            <option class="select-option" value="3">Java</option>
+            <option class="select-option" value="3">C</option>
+            <option class="select-option" value="3">JavaScript</option>
+          </select>  
+        </div>
+     </div>
+     <div class="form-div">
+          <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="choose-file-input-div">
+                  <div class="choose-file-heading-div">
+                    <h1 class="choose-file">Choose File or Paste your code here</h1>
+                  </div>
+                  <input  type="file" name="file" class="form-control-file input-file" id="exampleFormControlFile1" required>
+                </div>
+                <textarea class="form-control textarea" aria-label="With textarea" name="code">// Currently on Working</textarea>
+                <!-- Submit button -->
+                <button class="btn btn-success compile" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">Submit</button>
+
+          </form>
+      </div>
+
+      {% if verdict == "True" %}
+      <script>
+        alert("Accepted")
+      </script>
+      {% elif verdict == "False" %}
+      <script>
+        alert("Wrong Answer")
+      </script>
+      {% endif %}
+    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            {% if verdict == "NULL" %} 
+            <div class="modal-content">
+              <div class="modal-header border-0 text-center">
+                <h5 class="modal-title container" id="exampleModalLongTitle">Running your Code...</h5>
+              </div>
+              <div class="modal-body border-0">
+                <div class="text-center">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
                   </div>
                 </div>
-                 
-                <!-- Upload file form -->
-                <form method="POST" enctype="multipart/form-data">
-                  {% csrf_token %}
-                 
-                  <!-- <textarea class="form-control input-box" aria-label="With textarea" name="code"></textarea> -->
-                  <input  type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
-                 
-                  <!-- Submit button -->
-                  <button type="submit" class="btn btn-success">Submit</button>
-                </form>
+              </div>
             </div>
+            {% elif verdict == "True" %} 
+            <div class="modal-content">
+              <div class="modal-header border-0 text-center">
+                <h5 class="modal-title container" id="exampleModalLongTitle" style="color: rgb(22, 150, 22); font-size: 5rem;">Accepted</h5>
+              </div>
+              <div class="modal-body border-0">
+                <div class="container text-center">
+                  <img class="cross" src="{% static 'Images/tick.png' %}" alt="">
+                </div>
+              </div>
+            </div>
+            {% elif verdict == "False" %} 
+            <div class="modal-content">
+              <div class="modal-header border-0 text-center">
+                <h5 class="modal-title container" id="exampleModalLongTitle" style="color: rgb(225, 20, 20); font-size: 5rem;">Wrong Answer</h5>
+              </div>
+              <div class="modal-body border-0">
+                <div class="container text-center">
+                  <img class="cross" src="{% static 'Images/cross.png' %}" alt=""> 
+                </div>
+              </div>
+            </div>
+            {% endif %} 
+          </div>
         </div>
-   </div>
-   
+
+      <!-- Footer -->
+      <section id="footer">
+            <div class="footer-div">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 logo-div">
+              <ul class="list-unstyled list-inline social text-center">
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-google-plus"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02" target="_blank"><i class="logo fa fa-envelope"></i></a></li>
+              </ul>
+            </div>
+            <hr>
+            <div class="text-center text-white footer-text">
+              <p class="bottom-text">We cannot live being obsessed with what other people think about us. It's impossible to live like that. Not even God managed to please the entire world.</p>
+              <p class="h5 bottom-text">© Copyright All right Reversed Online Judge</p>
+            </div>
+            <hr>
+          </div>
+      </section>
 
 
+
+
+
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+      // $('.nav').addClass('affix');
+      // $(window).scroll(function() {
+      //     if ($(document).scrollTop() > 50) {
+      //         $('.nav').addClass('affix');
+      //         console.log("OK");
+      //     } else {
+      //        $('.nav').removeClass('affix');
+      //     }
+      // });
+      // $('#myModal').on('shown.bs.modal', function () {
+      // $('#myInput').trigger('focus')
+      // })
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

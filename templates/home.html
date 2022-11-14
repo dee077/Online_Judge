@@ -4,74 +4,126 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lets Code!</title>
+    <title>Online Judge</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d-float">
   </head>
+
   <body>
-    <!-- nav-bar -->
-   <div class="header">
-    <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <!-- <img class="logo" src="{% static 'Images/logo.png' %}" alt="logo"> -->
-        <a class="navbar-brand logo" href="#" style="color: white;">Lets Code!</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" style="color: white;">Disabled</a>
-            </li>
-          </ul>
-          <button type="button" class="btn btn-dark">Login</button>
-          <button type="button" class="btn btn-dark">Signup</button>
-        </div>
-      </div>
-    </nav>
-   </div>
 
-   <!-- table -->
-   <table class="table table-striped table-dark mt-5">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Status</th>
-        <th scope="col">Difficulty</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for obj in json_data %}
+        <nav class="nav">
+          <div class="container">
+              <div class="logo">
+                  <a class="logo_oj" href="#">Online Judge</a>
+              </div>
+              <div id="mainListDiv" class="main_list">
+                  <ul class="navlinks">
+                      <li><a href="#">Problems</a></li>
+                      <li><a href="#">Contest</a></li>
+                      <li><a href="#">Leaderboard</a></li>
+                      <li><a href="#">Login</a></li>
+                      <li><a href="#">Signup</a></li>
+                  </ul>
+              </div>
+              <span class="navTrigger">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+              </span>
+          </div>
+      </nav>
+
+    <!-- Background Image -->
+    <section class="home">
+    </section>
+
+    <!-- Two Headings -->
+    <div class="main-div container">
+    <div class="container heading-div">
+        <h1 class="two-headings">What are you Waiting for?</h1>
+        <h1 class="two-headings">Start Solving Problems Now!</h1>
+    </div>
+    
+    <!-- table -->
+    <div class="container table-div">
+    <table>
+      <thead>
         <tr>
-          <th scope="row"><a class="table_data" href="">{{obj.problem_id}}</a></th>
-          <td><a class="table_data" href="{% url 'problem' obj.problem_id %}">{{obj.title}}</a></td>
-          <td><a class="table_data" href="">{{obj.solved_status}}</a></td>
-          <td><a class="table_data" href="">{{obj.difficulty}}</a></td>
+          <th scope="col">#</th>
+          <th class="title-col" scope="col">Title</th>
+          <th class="acc-sub" scope="col">Submission</th>
+          <th class="acc-sub" scope="col">Accuracy</th>
+          <th scope="col">Status</th>
+          <th scope="col">Difficulty</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for obj in json_data %}
+          <tr class="clickable" onclick="location.href='{% url 'problem' obj.problem_id %}'">
+            <td class="table_data">{{obj.problem_id}}</td>
+            <td class="table_data"><a class="prob-title" href="{% url 'problem' obj.problem_id %}">{{obj.title}}</a></td>
+            <td class="table_data acc-sub">--</td>
+            <td class="table_data acc-sub ">--</td>
+            <td class="table_data">{{obj.solved_status}}</td>
+            {% if obj.difficulty == "Easy" or obj.difficulty == "Vary Easy" %}
+            <td class="table_data"><span class="difficulty difficulty-green">{{obj.difficulty}}</span></td>
+            {% elif obj.difficulty == "Medium" %}
+            <td class="table_data"><span class="difficulty difficulty-medium">{{obj.difficulty}}</span></td>
+            {% elif obj.difficulty == "Hard" %}
+            <td class="table_data"><span class="difficulty difficulty-hard">{{obj.difficulty}}</span></td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    </div>
 
 
 
+
+      <!-- Footer -->
+      <section id="footer">
+        <div class="footer-div">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+          <ul class="list-unstyled list-inline social text-center">
+            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"><i class="logo fa fa-google-plus"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02" target="_blank"><i class="logo fa fa-envelope"></i></a></li>
+          </ul>
+        </div>
+        <hr>
+        <div class="text-center text-white footer-text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum suscipit iure, cupiditate officiis vero enim in eum deleniti doloribus beatae.</p>
+          <p class="h5">© Copyright All right Reversed Online Judge</p>
+        </div>
+        <hr>
+      </div>
+    </section>
+
+
+    <!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+      // $('.nav').addClass('affix');
+      $(window).scroll(function() {
+          if ($(document).scrollTop() > 50) {
+              $('.nav').addClass('affix');
+              console.log("OK");
+          } else {
+             $('.nav').removeClass('affix');
+          }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

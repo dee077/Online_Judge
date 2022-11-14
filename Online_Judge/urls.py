@@ -20,8 +20,8 @@ from Website_OJ import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
     path('',include('Website_OJ.urls')),
-    path('',include('Website_OJ.urls')),
-    path('api/',views.Problem_list),
-    path('problem/',views.problem_statement),
+    path('problem/',views.problem_statement,name='problem'),
 ]
+

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path,os
+import subprocess
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'Website_OJ',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,8 @@ MEDIA_URL = 'code_file/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Docker Build Start Stop
+subprocess.run(["Docker","build","Website_OJ/","--rm","-t","code_test:latest"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+subprocess.run(["Docker","run","--name","code_compiler","-dit","code_test:latest"],text=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+subprocess.run(["Docker","stop","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)

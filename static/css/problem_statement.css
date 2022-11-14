@@ -1,20 +1,186 @@
-/* navbar */
-.logo{
-    color: white;
+.heading-div{
+    background-color: #fff;
+    border-radius: 25px;
+    margin-top: 6.5%;
+    max-width: max-content;
+    white-space: nowrap;
+    margin-left: 1%;
+    padding-right: 3.5%;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+}
+.heading{
+    color: #111;
+    padding: 2% 7%;
+    font-size: 4rem;
 }
 
-/* divs */
-.body-div{
-    width: 100%;
-}
-.left-div{
-    width: 50%;
-    position: relative; 
-}
-.right-div{
-    width: 50%;
+
+.statement-div{
+    background-color: #fff;
     position: relative;
+    margin-top: 3%;
+    border-radius: 20px;
+    left: 1%;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
 }
-.input-box{
-    height: 30rem;
+.statement{
+    color: #111;
+    font-size: 2rem;
+    padding: 0.7% 1.8%;
 }
+
+
+.choose-dropdown-div{
+    display:flex;
+    position: relative;
+    margin-top: 3%;
+}
+.choose-language-div{
+    background-color: #fff;
+    border-radius: 18px;
+    margin-left: 1%;
+    max-width: max-content;
+    white-space: nowrap;
+    padding-right: 3%;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+    
+}
+.choose-language{
+    color: #111;
+    font-size: 3rem;
+    padding: 3% 9%;
+    padding-bottom: 0.1%;
+    
+}
+
+.dropdown{
+    float: right;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+
+.form-select{
+    font-size: 2rem;
+    border-radius: 15px;
+    padding-left: 13%;
+    max-width: max-content;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+    cursor: pointer;
+}
+.form-select * {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.form-select:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+}
+
+.choose-file-input-div{
+    display: flex;
+}
+.choose-file-heading-div{
+    background-color: #fff;
+    border-radius: 17px;
+    margin-left: 1%;
+    max-width: max-content;
+    white-space: nowrap;
+    padding-right: 3%;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+}
+.choose-file{
+    color: #111;
+    font-size: 3rem;
+    padding: 1.4% 3.5%;
+    padding-bottom: 1px;
+}
+.input-file{
+    float:right;
+    margin-left: 3%;
+    font-size: 1.9rem;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    height: 100%;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+}
+::-webkit-file-upload-button{
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: rgb(205, 210, 206);
+    margin-right: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgb(10, 10, 10);
+}
+::-webkit-file-upload-button:hover{
+    box-shadow: 0 0 5px rgb(2, 2, 2);
+    cursor: pointer;
+}
+.textarea:focus{
+    border-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    box-shadow: 0 0 10px rgb(16, 15, 15);
+}
+.form-div{
+    margin-top: 2.5%;
+}
+.textarea{
+    margin-top: 2.5%;
+    margin-left: 1%;
+    width: 50%;
+    height: 500px;
+    font-size: 1.7rem;
+    border-radius: 20px;
+    padding: 1% 2%;
+    color: rgb(208, 199, 199);
+    box-shadow: 0 0 11px rgb(16, 15, 15);
+}
+.compile{
+    margin-left: 19%;
+    margin-top: 2.5%;
+    font-size: 2rem;
+    margin-bottom: 5%;
+    border-radius: 20px;
+    padding: 5px 25px;
+    box-shadow: 0 0 2px rgb(16, 15, 15);
+}
+.compile:hover{
+    box-shadow: 0 0 8px rgb(1, 54, 22);
+}
+
+body {
+    overflow-y: overlay; 
+}
+
+.modal-content{
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 20px  rgb(16, 15, 15) ;
+}
+.modal-title{
+    font-size: 5rem;
+}
+.modal-content{
+    padding-bottom: 30px;
+}
+.spinner-border {
+    animation-duration: 1.2s;
+    height: 5rem;
+    width: 5rem;
+}
+.tick{
+    width: 80px;
+}
+.cross{
+    width: 80px;
+}
+
+
+

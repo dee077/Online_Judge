@@ -3,6 +3,7 @@ from ast import mod
 from xmlrpc.client import DateTime
 from django.db import models
 
+
 # Create your models here.
 class Member(models.Model):
     fullname = models.CharField(max_length=200)
@@ -28,15 +29,13 @@ class Problem(models.Model):
         return self.title
 
 class Test_cases(models.Model):
-    # problem_id = models.ForeignKey(Problem,on_delete=models.DO_NOTHING)
-    input_case = models.CharField(max_length=200)
-    output_case = models.CharField(max_length=200)
+    p_id = models.IntegerField(default=1,primary_key=True)
+    input_file = models.FileField(null=True)
+    correct_output = models.FileField(null=True)
+
 
 class Submission(models.Model):
-#     problem_id = models.ForeignKey(Problem,on_delete=models.DO_NOTHING)
-    submission_time = models.TimeField(null=True)
-    verdict = models.CharField(max_length=200)
-
-class File(models.Model):
-    file = models.FileField(null=True)
-    code_data = models.CharField(max_length=2000,null=True)
+    file_name = models.FileField(null=True)
+    
+    def __str__(self):
+        return self.file
