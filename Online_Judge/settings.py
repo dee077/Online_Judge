@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$m8m)%fnfo&+xrb7tjniot-wsg619lb_ikx29l_#%^u4_s8f_v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,6 +133,6 @@ MEDIA_URL = 'code_file/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Docker Build Start Stop
-subprocess.run(["Docker","build","Website_OJ/","--rm","-t","code_test:latest"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-subprocess.run(["Docker","run","--name","code_compiler","-dit","code_test:latest"],text=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-subprocess.run(["Docker","stop","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+subprocess.run(["sudo","docker","build","Website_OJ/","--rm","-t","code_test:latest"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+subprocess.run(["sudo","docker","run","--name","code_compiler","-dit","code_test:latest"],text=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+subprocess.run(["sudo","docker","stop","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)

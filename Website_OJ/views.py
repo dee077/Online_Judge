@@ -29,22 +29,22 @@ def problem_statement(request,p_id):
         current_submitted_file=Submission.objects.get(id=document.id)
         current_submitted_file=current_submitted_file.file_name
 
-        subprocess.run(["Docker","start","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","start","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         # docker cp input output and cpp
-        subprocess.run(["docker","cp","code_files/"+input_file.name,"code_compiler:/usr/src/input.txt"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-        subprocess.run(["docker","cp","code_files/output.txt","code_compiler:/usr/src/"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-        subprocess.run(["docker","cp","code_files/"+current_submitted_file.name,"code_compiler:/usr/src/test.cpp"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","cp","code_files/"+input_file.name,"code_compiler:/usr/src/input.txt"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","cp","code_files/output.txt","code_compiler:/usr/src/"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","cp","code_files/"+current_submitted_file.name,"code_compiler:/usr/src/test.cpp"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         
         # docker execut and copy back
-        subprocess.run(["docker","exec","code_compiler","python3","compiler.py"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-        subprocess.run(["docker","cp","code_compiler:/usr/src/output.txt","code_files/output.txt"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","exec","code_compiler","python3","compiler.py"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","cp","code_compiler:/usr/src/output.txt","code_files/output.txt"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         
         # docker stop
-        subprocess.run(["Docker","stop","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        subprocess.run(["sudo","docker","stop","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
         # output file compare
-        f1=open("C:/Users/deepa/OneDrive/Documents/Django/Online_Judge/code_files/"+correct_op.name,'r')
-        f2=open("C:/Users/deepa/OneDrive/Documents/Django/Online_Judge/code_files/output.txt",'r')  
+        f1=open("/home/ubuntu/Django/Online_Judge/code_files/"+correct_op.name,'r')
+        f2=open("/home/ubuntu/Django/Online_Judge/code_files/output.txt",'r')  
         i = 0
         x=0
         for line1 in f1:
