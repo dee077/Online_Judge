@@ -17,6 +17,7 @@ from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path,include
 from Website_OJ import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,4 @@ urlpatterns = [
     path('',include('Website_OJ.urls')),
     path('problem/',views.problem_statement,name='problem'),
 ]
-
+urlpatterns += staticfiles_urlpatterns() 
