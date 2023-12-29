@@ -1,0 +1,1 @@
+ssh -i "online_judge.pem" ubuntu@43.205.196.224
