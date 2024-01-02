@@ -27,13 +27,13 @@ Follow these steps to set up the project:
 2. **Create and Activate Virtual Environment:**
 
     Windows:
-        ```bash
-        python -m venv venv
-        .\venv\Scripts\activate
+      ```bash
+      python -m venv venv
+      .\venv\Scripts\activate
     
     MacOs:
-        ```bash
-        python3 -m venv venv
-        source venv/bin/activate
+      ```bash
+      python3 -m venv venv
+      source venv/bin/activate
 
 3. **Install Dependencies:**
