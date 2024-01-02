@@ -60,13 +60,8 @@ Follow these steps to set up the project:
     The application should now be running at http://localhost:8000/. You can access the Django admin panel at    
     http://localhost:8000/admin/
 
-7. **Super User Creadnetials**
+7. **Create Super Creadnetials**
     
-    Username: 
-        ```
-        admin
-        ```
-    Password: 
-        ```
-        Deepanshu27@
-        ```
+    ```bash
+    python manage.py createsuperuser
+    ```
