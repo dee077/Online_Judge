@@ -43,8 +43,8 @@ def problem_statement(request,p_id):
         subprocess.run(["sudo","docker","stop","code_compiler"], stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
         # output file compare
-        f1=open("/home/ubuntu/Django/Online_Judge/code_files/"+correct_op.name,'r')
-        f2=open("/home/ubuntu/Django/Online_Judge/code_files/output.txt",'r')  
+        f1=open("/home/ubuntu/projects/Online_Judge/code_files/"+correct_op.name,'r')
+        f2=open("/home/ubuntu/projects/Online_Judge/code_files/output.txt",'r')  
         i = 0
         x=0
         for line1 in f1:
