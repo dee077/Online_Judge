@@ -23,6 +23,7 @@ Follow these steps to set up the project:
    ```bash
    git clone https://github.com/dee077/Online_Judge.git
    cd my-django-project
+   ```
 
 2. **Create and Activate Virtual Environment:**
 
@@ -30,6 +31,13 @@ Follow these steps to set up the project:
     ```bash
     python -m venv venv
     .\venv\Scripts\activate
+    ```
+
+    MacOs:  
+    ```bash
+    python -m venv venv
+    .\venv\Scripts\activate  
+    ```
 
 3. **Install Dependencies:**
     
