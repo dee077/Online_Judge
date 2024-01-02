@@ -63,10 +63,10 @@ Follow these steps to set up the project:
 7. **Super User Creadnetials**
     
     Username: 
-        ```bash
-            abc
+        ```
+        admin
         ```
     Password: 
-        ```bash
-            abc
+        ```
+        Deepanshu27@
         ```
