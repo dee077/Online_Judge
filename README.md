@@ -21,5 +21,13 @@ Follow these steps to set up the project:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/my-django-project.git
-   cd my-django-project
+   git clone https://github.com/dee077/Online_Judge.git
+   cd my-django-project```
+
+2. **Create and Activate Virtual Environment:**
+
+    ```bash
+    python -m venv venv
+    .\venv\Scripts\activate```
+
+3. **Install Dependencies:**
