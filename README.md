@@ -1,4 +1,4 @@
-# Online_Judge
+# Online_Judge [Live](https://deepanshu-sahu-projects.live/)
 
 Welcome to the Online Judge, a powerful platform designed to evaluate and assess programming skills through a systematic and automated process. This application serves as a hub for coding challenges, algorithmic problem-solving, and competitive programming exercises.
 
@@ -16,6 +16,7 @@ Welcome to the Online Judge, a powerful platform designed to evaluate and assess
 
 - **Efficient Deployment on AWS EC2:** Deployed on AWS EC2 for reliability and scalability. The project utilizes Gunicorn as the HTTP server and Nginx as a reverse proxy, enhancing performance and accessibility for users.
 
+visit here: https://deepanshu-sahu-projects.live/
 
 ## Prerequisites
 
