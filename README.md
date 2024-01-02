@@ -30,12 +30,8 @@ Follow these steps to set up the project:
     ```bash
     python -m venv venv
     .\venv\Scripts\activate
-    <br/><br/>
-    MacOs:
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
 
 3. **Install Dependencies:**
+    
     ```bash
     pip install -r requirements.txt
