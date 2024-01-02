@@ -1,7 +1,25 @@
 # Online_Judge
-• A coding platform where users can write, compile, and execute their code based on the test cases in the database. <br />
-• It is a Django web app utilizing CRUD operations for code submission. <br />
-• Used HTML, CSS, Javascript, and Bootstrap in Django Template for the front end. <br />
-• Executed the code inside a Docker Container to provide a secure environment for code executions. <br />
-• Deployed the project using Gunicorn and Nginx on the Internet using Aws Ec2 instance as a host machine. <br />
-Visit Here: http://3.111.218.152:8000/
+
+Welcome to the Online Judge, a powerful platform designed to evaluate and assess programming skills through a systematic and automated process. This application serves as a hub for coding challenges, algorithmic problem-solving, and competitive programming exercises.
+
+## Introduction
+
+This document provides instructions for setting up and running the project locally.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- Python
+- Git
+- Docker
+
+## Getting Started
+
+Follow these steps to set up the project:
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/your-username/my-django-project.git
+   cd my-django-project
