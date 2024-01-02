@@ -14,7 +14,7 @@ Welcome to the Online Judge, a powerful platform designed to evaluate and assess
 
 - **Secure Code Execution:** Code submissions are executed within secure Docker Containers, ensuring a protected environment for code execution. This implementation prioritizes security and prevents unauthorized access or interference.
 
-- **Efficient Deployment on AWS EC2:** Deployed on AWS EC2 for reliability and scalability. The project utilizes Gunicorn as the HTTP server and Nginx as a reverse proxy, enhancing performance and accessibility for users.
+- **Efficient Deployment on AWS EC2:** Deployed on AWS EC2 for reliability and scalability. The project utilizes Gunicorn as the HTTP server and Apache2 as a reverse proxy, enhancing performance and accessibility for users on my custom domain.
 
 visit here: https://deepanshu-sahu-projects.live/
 
