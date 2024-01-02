@@ -43,3 +43,30 @@ Follow these steps to set up the project:
     
     ```bash
     pip install -r requirements.txt
+    ```
+
+5. **Database Migration:**
+    
+    ```bash
+    python manage.py migrate
+    ```
+
+6. **Run the Application**
+
+    ```bash
+    python manage.py runverver
+    ```
+    This command starts the application and its dependencies
+    The application should now be running at http://localhost:8000/. You can access the Django admin panel at    
+    http://localhost:8000/admin/
+
+7. **Super User Creadnetials**
+    
+    Username: 
+        ```bash
+            abc
+        ```
+    Password: 
+        ```bash
+            abc
+        ```
