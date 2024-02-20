@@ -1,2 +1,5 @@
 Aws cammand.txt
 online_judge.pem
+.vscode
+venv
+Online_Judge_keypair.pem

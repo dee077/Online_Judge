@@ -67,7 +67,7 @@ Follow these steps to set up the project:
 6. **Run the Application**
 
     ```bash
-    python manage.py runverver
+    python manage.py runserver
     ```
     This command starts the application and its dependencies
     The application should now be running at http://localhost:8000/. You can access the Django admin panel at    
