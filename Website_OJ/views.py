@@ -1,4 +1,4 @@
-import imp,subprocess
+import subprocess
 import json
 from xml.dom.minidom import Document
 from django.shortcuts import render
