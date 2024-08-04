@@ -3,3 +3,4 @@ online_judge.pem
 .vscode
 venv
 Online_Judge_keypair.pem
+Website_OJ/__pycache__
